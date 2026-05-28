@@ -1,28 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Console typeface — drives both --mono and --sans (see globals.css)
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const common = {
-  title: "Cela Pablo - Professional portfolio",
-  description: "Professional portfolio showcasing my projects and skills",
-  image: '/icons/favicon.ico'
-}
+  title: "Cela Pablo — Full-stack + Web3 engineer",
+  description:
+    "Shipping production-grade Web3 products that don't break under real users. Solidity, Next.js, and the messy infrastructure in between.",
+  image: "/icons/favicon.ico",
+};
 
 export const metadata: Metadata = {
   title: common.title,
   description: common.description,
   metadataBase: new URL("https://my-portfolio-tau-green-82.vercel.app/"),
-  applicationName: "Cela Pablo - Professional portfolio",
+  applicationName: "Cela Pablo — Web3 engineer",
   alternates: {
     canonical: "https://my-portfolio-tau-green-82.vercel.app//",
   },
@@ -40,7 +38,7 @@ export const metadata: Metadata = {
       {
         rel: "apple-touch-icon",
         url: "/icons/apple-touch-icon.png",
-      }
+      },
     ],
   },
   manifest: "/icons/manifest.json",
@@ -65,7 +63,7 @@ export const metadata: Metadata = {
     title: common.title,
     statusBarStyle: "default",
   },
-}
+};
 
 export default function RootLayout({
   children,
@@ -75,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={jetbrainsMono.variable}
       >
         {children}
       </body>

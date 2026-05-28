@@ -1,78 +1,130 @@
 "use client";
 
-import Link from "next/link";
-import Image from 'next/image';
-import GithubIcon from '@/assets/icons/github.svg'
-import LinkedinIcon from '@/assets/icons/linkedin.svg'
-import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { useState } from "react";
+
+const email = "pablooandress9@gmail.com";
 
 export default function ContactSection() {
-    return (
-        <section id="contact" className="py-20 px-6 bg-slate-50/50">
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="max-w-2xl mb-12"
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-                        Let’s Work Together
-                    </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                        Have a project in mind or need help building something? Reach out
-                        — I’m available for freelance work, collaborations, and Web3
-                        development.
-                    </p>
-                </motion.div>
+  const [copied, setCopied] = useState(false);
 
-                {/* Content */}
-                <div className="grid md:grid-cols-2 gap-10 items-start">
-                    {/* Contact Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="space-y-6"
-                    >
-                        <div className="space-y-3">
-                            <h3 className="font-semibold text-lg text-black">Direct Contact</h3>
+  const onCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard?.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1600);
+  };
 
-                            <a
-                                href="mailto:pablooandress9@gmail.com"
-                                className="flex items-center gap-3 text-slate-600 hover:text-slate-900 transition"
-                            >
-                                <Mail className="w-5 h-5" />
-                                pablooandress9@gmail.com
-                            </a>
-                        </div>
+  return (
+    <section className="section" id="contact">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="section-label">04 — contact</div>
+            <h2 className="section-title">Let&apos;s build something.</h2>
+            <p className="section-sub">
+              I&apos;m open to Web3 freelance contracts, audit-prep engagements, and
+              full-stack collaborations. Async by default, fast on async, fastest in
+              Foundry.
+            </p>
+          </div>
+          <div className="meta">
+            <div>response &lt; 24h</div>
+            <div>typezone UTC-3</div>
+            <div>en · es</div>
+          </div>
+        </div>
 
-                        <div className="space-y-3">
-                            <h3 className="font-semibold text-lg text-black">Find me online</h3>
-
-                            <div className="flex gap-4">
-
-                                <Link
-                                    target="_blank" rel="noopener noreferrer"
-                                    className="size-8 relative mx-2"
-                                    href="https://www.linkedin.com/in/pablo-cela-4a2219167/">
-                                    <Image src={LinkedinIcon} alt="linkedin" fill className="w-6 h-6" />
-                                </Link>
-                                <Link
-                                    target="_blank" rel="noopener noreferrer"
-                                    className="size-8 relative mx-1"
-                                    href="https://github.com/CelaPablo">
-                                    <Image src={GithubIcon} alt="linkedin" fill className="w-6 h-6" />
-                                </Link>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
+        <div className="contact-grid">
+          <div className="contact-card">
+            <h3>Drop a line.</h3>
+            <p>
+              Tell me what you&apos;re building, the deadline pressure, and whether there&apos;s
+              existing code or you&apos;re starting from a whiteboard. I&apos;ll come back with a
+              scope and rate within a day.
+            </p>
+            <a className="email" href={`mailto:${email}`} onClick={onCopy} data-hover>
+              <span>{email}</span>
+              <span className="copy-state">{copied ? "✓ copied" : "click to copy"}</span>
+            </a>
+            <div style={{ display: "flex", gap: 10 }}>
+              <a
+                href={`mailto:${email}?subject=Project%20inquiry`}
+                className="btn btn-primary"
+                data-hover
+              >
+                send brief <span className="arrow">→</span>
+              </a>
+              <a href="/resume.pdf" target="_blank" rel="noopener" className="btn" data-hover>
+                download resume <span className="arrow">↗</span>
+              </a>
             </div>
-        </section>
-    );
+          </div>
+
+          <div className="contact-side">
+            <div className="contact-side-head">
+              <span>~/contact/channels</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span className="dot" />
+                online
+              </span>
+            </div>
+            <div className="contact-list">
+              <a
+                className="contact-row"
+                href="https://www.linkedin.com/in/pablo-cela-4a2219167/"
+                target="_blank"
+                rel="noopener"
+                data-hover
+              >
+                <span className="k">linkedin</span>
+                <span className="v">pablo-cela</span>
+                <span className="arrow">↗</span>
+              </a>
+              <a
+                className="contact-row"
+                href="https://github.com/CelaPablo"
+                target="_blank"
+                rel="noopener"
+                data-hover
+              >
+                <span className="k">github</span>
+                <span className="v">CelaPablo</span>
+                <span className="arrow">↗</span>
+              </a>
+              <a
+                className="contact-row"
+                href="https://twitter.com/pabloan95553659"
+                target="_blank"
+                rel="noopener"
+                data-hover
+              >
+                <span className="k">x / twitter</span>
+                <span className="v">@pabloan95553659</span>
+                <span className="arrow">↗</span>
+              </a>
+              <a className="contact-row" href={`mailto:${email}`} data-hover>
+                <span className="k">email</span>
+                <span className="v" style={{ fontSize: 12 }}>
+                  {email}
+                </span>
+                <span className="arrow">↗</span>
+              </a>
+              <div className="contact-row" data-hover>
+                <span className="k">timezone</span>
+                <span className="v">UTC-3 (Argentina)</span>
+                <span className="arrow">—</span>
+              </div>
+              <div className="contact-row" data-hover>
+                <span className="k">availability</span>
+                <span className="v" style={{ color: "var(--lime)" }}>
+                  ● Q3 2026 open
+                </span>
+                <span className="arrow">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
