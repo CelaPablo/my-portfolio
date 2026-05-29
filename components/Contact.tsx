@@ -28,7 +28,6 @@ export default function ContactSection() {
             </p>
           </div>
           <div className="meta">
-            <div>response &lt; 24h</div>
             <div>typezone UTC-3</div>
             <div>en · es</div>
           </div>
@@ -63,8 +62,7 @@ export default function ContactSection() {
           <div className="contact-side">
             <div className="contact-side-head">
               <span>~/contact/channels</span>
-              <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span className="dot" />
+              <span style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--lime)" }}>
                 online
               </span>
             </div>
@@ -91,17 +89,6 @@ export default function ContactSection() {
                 <span className="v">CelaPablo</span>
                 <span className="arrow">↗</span>
               </a>
-              <a
-                className="contact-row"
-                href="https://twitter.com/pabloan95553659"
-                target="_blank"
-                rel="noopener"
-                data-hover
-              >
-                <span className="k">x / twitter</span>
-                <span className="v">@pabloan95553659</span>
-                <span className="arrow">↗</span>
-              </a>
               <a className="contact-row" href={`mailto:${email}`} data-hover>
                 <span className="k">email</span>
                 <span className="v" style={{ fontSize: 12 }}>
@@ -117,7 +104,7 @@ export default function ContactSection() {
               <div className="contact-row" data-hover>
                 <span className="k">availability</span>
                 <span className="v" style={{ color: "var(--lime)" }}>
-                  ● Q3 2026 open
+                  open
                 </span>
                 <span className="arrow">—</span>
               </div>

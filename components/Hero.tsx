@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+
 const focus = [
   "Solidity",
   "Next.js",
@@ -16,13 +18,12 @@ export default function HeroSection() {
         <div className="hero-grid">
           <div>
             <div className="hero-status">
-              <span className="dot" />
-              available · Q3 2026
+              available for contracts
             </div>
-            <h1 className="hero-title">
-              Building{" "}
-              <span className="underline-wave">production-grade</span> Web3 that{" "}
-              <span className="accent">doesn&apos;t break</span> under real users.
+            <h1 className="hero-title grid">
+              <span>Building</span>
+              <span className="accent">Production-Ready Digital</span>
+              <span>Experiences</span>
             </h1>
             <p className="hero-lede">
               Full-stack + Web3 engineer. I ship the contracts, the interface, and the
@@ -45,7 +46,7 @@ export default function HeroSection() {
                 aria-label="GitHub"
                 data-hover
               >
-                gh
+                <FaGithub />
               </a>
               <a
                 href="https://www.linkedin.com/in/pablo-cela-4a2219167/"
@@ -54,16 +55,7 @@ export default function HeroSection() {
                 aria-label="LinkedIn"
                 data-hover
               >
-                in
-              </a>
-              <a
-                href="https://twitter.com/pabloan95553659"
-                target="_blank"
-                rel="noopener"
-                aria-label="X / Twitter"
-                data-hover
-              >
-                x
+                <FaLinkedinIn />
               </a>
             </div>
           </div>

@@ -51,11 +51,6 @@ export default function ServiceSection() {
               production-ready products — from the frontend down to the contract layer.
             </p>
           </div>
-          <div className="meta">
-            <div>{services.length} services</div>
-            <div>web · web3</div>
-            <div>freelance · contract</div>
-          </div>
         </div>
 
         <div className="services-grid">

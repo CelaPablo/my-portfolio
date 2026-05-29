@@ -419,9 +419,9 @@ main { position: relative; z-index: 2; }
 }
 .hero-status .dot {
   width: 8px; height: 8px;
-  background: var(--lime);
+  background: var(--cyan);
   border-radius: 50%;
-  box-shadow: 0 0 8px var(--lime);
+  box-shadow: 0 0 8px var(--cyan);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -482,6 +482,7 @@ main { position: relative; z-index: 2; }
   transition: border-color 160ms, color 160ms, transform 160ms;
 }
 .hero-socials a:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+.hero-socials a svg { width: 18px; height: 18px; }
 
 /* hero side card — terminal */
 .terminal {
@@ -1061,8 +1062,8 @@ main { position: relative; z-index: 2; }
 .contact-side-head .dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 8px var(--lime);
+  background: var(--cyanz);
+  box-shadow: 0 0 8px var(--cyan);
 }
 .contact-list {
   padding: 8px 0;
@@ -1090,7 +1091,7 @@ main { position: relative; z-index: 2; }
    Footer
    ========================================================= */
 .footer {
-  padding: 60px 0 80px;
+  padding: 40px 0 40px;
   border-top: 1px solid var(--line-soft);
   margin-top: 60px;
 }

@@ -17,11 +17,6 @@ export default function ProjectSection() {
               carefully.
             </p>
           </div>
-          <div className="meta">
-            <div>2 featured</div>
-            <div>4 selected</div>
-            <div>6 shipped total</div>
-          </div>
         </div>
 
         <div className="projects-headline">

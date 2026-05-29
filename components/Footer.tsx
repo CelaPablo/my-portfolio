@@ -16,15 +16,8 @@ export default function Footer() {
             </div>
             <div>© 2026 · Pablo Cela · built with React, Next.js & too much Foundry.</div>
           </div>
-          <div className="footer-ascii">
-            {`  ┌─────────────┐
-  │  ◆◆◆◆◆◆◆◆◆  │
-  │  ◆ EOF ◆◆◆  │
-  │  ◆◆◆◆◆◆◆◆◆  │
-  └─────────────┘`}
-          </div>
           <div style={{ textAlign: "right" }}>
-            <div>built 2026.05 · v3.0</div>
+            <div>built 2026</div>
             <div>
               <a href="#top" data-hover style={{ color: "var(--cyan)" }}>
                 ↑ back to top

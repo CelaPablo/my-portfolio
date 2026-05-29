@@ -56,11 +56,6 @@ export default function TechnicalSection() {
               AI workflows — sharpened on real production projects, not tutorials.
             </p>
           </div>
-          <div className="meta">
-            <div>{groups.length} domains</div>
-            <div>{groups.reduce((s, g) => s + g.chips.length, 0)} tools</div>
-            <div>updated 2026.05</div>
-          </div>
         </div>
 
         <div className="cap-wrap" data-hover>
