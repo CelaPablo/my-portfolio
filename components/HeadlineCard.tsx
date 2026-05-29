@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type HeadlineCardProps = {
   num: string;
   title: string;
@@ -38,8 +40,13 @@ export default function HeadlineCard({
         <div className="img-stamp">{stamp}</div>
         <div className="img-shell">
           {img ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={img} alt={title} loading="lazy" />
+            <Image
+              src={img}
+              alt={`${title} project screenshot`}
+              fill
+              sizes="(max-width: 880px) 100vw, 55vw"
+              style={{ objectFit: "cover" }}
+            />
           ) : (
             <div className="ph">project shot · {title.toLowerCase()}</div>
           )}

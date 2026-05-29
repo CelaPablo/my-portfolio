@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type ProjectCardProps = {
   title: string;
   kind: string;
@@ -13,11 +15,12 @@ export default function ProjectCard({ title, kind, desc, link, img, stack }: Pro
       <div className="media">
         <div className="stamp">{kind}</div>
         {img ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={img}
-            alt={title}
-            loading="lazy"
+            alt={`${title} project screenshot`}
+            fill
+            sizes="(max-width: 720px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
           />
         ) : (
           <div className="ph">project shot · {title.toLowerCase()}</div>
