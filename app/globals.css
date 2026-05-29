@@ -735,6 +735,25 @@ main { position: relative; z-index: 2; }
   font-size: 10px;
 }
 
+/* auto-rotation progress bar on the active tab */
+.cap-tab-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: cap-tab-fill linear forwards;
+}
+@keyframes cap-tab-fill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cap-tab-progress { display: none; }
+}
+
 .cap-panel {
   padding: 32px;
 }

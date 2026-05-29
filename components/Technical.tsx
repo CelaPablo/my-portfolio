@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const ROTATE_MS = 4000;
 
 const groups = [
   {
@@ -41,8 +43,43 @@ const groups = [
 ];
 
 export default function TechnicalSection() {
-  const [active, setActive] = useState(groups[0].id);
-  const current = groups.find((g) => g.id === active)!;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  const current = groups[activeIndex];
+
+  // Respect reduced-motion: don't auto-rotate.
+  const reducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+  // Only rotate while the section is on screen.
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const rotating = visible && !paused && !reducedMotion;
+
+  useEffect(() => {
+    if (!rotating) return;
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % groups.length);
+    }, ROTATE_MS);
+    return () => clearInterval(id);
+  }, [rotating, activeIndex]);
+
+  const selectTab = (index: number) => {
+    setActiveIndex(index);
+  };
 
   return (
     <section className="section" id="stack">
@@ -58,19 +95,35 @@ export default function TechnicalSection() {
           </div>
         </div>
 
-        <div className="cap-wrap" data-hover>
+        <div
+          className="cap-wrap"
+          data-hover
+          ref={wrapRef}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           <div className="cap-tabs">
-            {groups.map((g) => (
-              <button
-                key={g.id}
-                className={`cap-tab${active === g.id ? " active" : ""}`}
-                onClick={() => setActive(g.id)}
-                data-hover
-              >
-                <span>{g.label}</span>
-                <span className="count">{String(g.chips.length).padStart(2, "0")}</span>
-              </button>
-            ))}
+            {groups.map((g, i) => {
+              const isActive = i === activeIndex;
+              return (
+                <button
+                  key={g.id}
+                  className={`cap-tab${isActive ? " active" : ""}`}
+                  onClick={() => selectTab(i)}
+                  data-hover
+                >
+                  <span>{g.label}</span>
+                  <span className="count">{String(g.chips.length).padStart(2, "0")}</span>
+                  {isActive && rotating && (
+                    <span
+                      className="cap-tab-progress"
+                      key={activeIndex}
+                      style={{ animationDuration: `${ROTATE_MS}ms` }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
           <div className="cap-panel">
             <div className="cap-panel-head">
