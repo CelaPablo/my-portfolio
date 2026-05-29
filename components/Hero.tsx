@@ -75,7 +75,7 @@ export default function HeroSection() {
                 <span />
                 <span />
               </span>
-              <span>~/developer.ts</span>
+              <span>~/celapablo/manifest.ts</span>
             </div>
             <div className="terminal-body">
               <span className="ln">
@@ -85,31 +85,49 @@ export default function HeroSection() {
                 <span className="kw">const</span> <span className="var">developer</span> ={" "}
                 <span className="pn">{"{"}</span>
               </span>
-              <span className="ln">
-                {"  "}name: <span className="str">&quot;Cela Pablo&quot;</span>,
-              </span>
-              <span className="ln">
-                {"  "}stack: [<span className="str">&quot;React&quot;</span>,{" "}
-                <span className="str">&quot;Next.js&quot;</span>,{" "}
-                <span className="str">&quot;Solidity&quot;</span>],
-              </span>
-              <span className="ln">
-                {"  "}shipped: <span className="num">6</span>,
-              </span>
-              <span className="ln">
-                {"  "}audits: <span className="num">2</span>,
-              </span>
-              <span className="ln">
-                {"  "}status: <span className="str">&quot;available&quot;</span>
+              <span className="ln !ml-6">
+                <span className="ln">
+                  {"  "}name: <span className="str">&quot;Cela Pablo&quot;</span>,
+                </span>
+                <span className="ln">
+                  {"  "}role: <span className="str">&quot;Full-stack + Web3 engineer&quot;</span>,
+                </span>
+                <span className="ln">
+                  {"  "}stack: [<span className="str">&quot;React&quot;</span>,{" "}
+                  <span className="str">&quot;Next.js&quot;</span>,{" "}
+                  <span className="str">&quot;Solidity&quot;</span>,{" "}
+                  <span className="str">&quot;Foundry&quot;</span>],
+                </span>
+                <span className="ln">
+                  {"  "}shipped: <span className="num">6</span>,
+                  {"  "}<span className="com">{"// production protocols"}</span>
+                </span>
+                <span className="ln">
+                  {"  "}audits: <span className="num">2</span>,
+                  {"  "}<span className="com">{"// external, Sweep tranches"}</span>
+                </span>
+                <span className="ln">
+                  {"  "}status: <span className="str">&quot;available&quot;</span>
+                </span>
+                <span className="ln">
+                  {"  "}rate: <span className="kw">await</span>
+                  {"  "}<span className="">negotiates</span><span className="kw">()</span>
+                </span>
               </span>
               <span className="ln">
                 <span className="pn">{"}"}</span>
+              </span>
+              <span className="ln">
+                <span className="kw">$</span>
+                {"  "}<span className="var">ready for next contract_</span>
+              </span>
+              <span className="ln">
                 <span className="cursor-tick" />
               </span>
             </div>
             <div className="terminal-footer">
               <span>utf-8 · ts</span>
-              <span>ln 11 · col 2</span>
+              <span>ln 12 · col 1</span>
             </div>
           </div>
         </div>

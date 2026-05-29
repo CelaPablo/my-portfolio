@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Geist } from "next/font/google";
 import "./globals.css";
 
-// Console typeface — drives both --mono and --sans (see globals.css)
+// Mono — terminal, labels, code-flavored chrome (drives --mono)
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+// Sans — headings and prose (drives --sans)
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -71,12 +78,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={jetbrainsMono.variable}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${jetbrainsMono.variable} ${geistSans.variable}`}
+      suppressHydrationWarning
+    >
+      <body>{children}</body>
     </html>
   );
 }

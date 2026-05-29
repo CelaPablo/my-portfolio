@@ -4,7 +4,7 @@ export default function Navbar() {
       <div className="nav-inner">
         <a href="#top" className="nav-brand">
           <span className="dot" />
-          <span>celapablo</span>
+          <span>CelaPablo</span>
           <span style={{ color: "var(--fg-3)" }}>~/portfolio</span>
         </a>
         <div className="nav-links">
